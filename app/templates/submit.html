@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div id="fields">
+
+		<p>Every city has a myriad of compelling stories, never told before. Here is your chance, tell it short, tell it strong.</p>
+
+<form action="" method="post" name="post">
+	{{form.hidden_tag()}}
+	<table>
+		<tr>
+			<td>Title:</td>
+			<td>{{ form.title(size = 30, maxlength = 140) }}</td>
+			<td>{% for error in form.errors.title %}
+				<span style="color: red;">{{error}}</span>
+				{% endfor %}
+			</td>
+		</tr>
+		<tr>
+			<td>Story:</td>
+			<td>{{ form.body(size = 100, maxlength = 1800)}}</td>
+			<td>{% for error in form.errors.body %} 
+				<span style="color: red;">{{error}}</span>
+				{% endfor %}
+			</td>
+		</tr>
+		<tr>
+			<td>Where:</td>
+			<td>{{ form.location(size = 30, maxlength = 64)}}</td>
+			<td>{% for error in form.errors.location %} 
+				<span style="color: red;">{{error}}</span>
+				{% endfor %}
+			</td>
+		</tr>
+		<tr>
+			<td>Who:</td>
+			<td>{{ form.pseudonym(size = 30, maxlength = 64)}}</td>
+			<td>{% for error in form.errors.pseudonym %} 
+				<span style="color: red;">{{error}}</span>
+				{% endfor %}
+			</td>
+		</tr>
+		<tr>
+			<td>Email:</td>
+			<td>{{ form.email(size = 30, maxlength = 64)}}</td>
+			<td>{% for error in form.errors.email %} 
+				<span style="color: red;">{{error}}</span>
+				{% endfor %}
+			</td>
+		</tr>		
+		<tr>
+			<td></td>
+			<td><input class="publish" type="submit" value="Publish!"></td>
+			<td></td>
+		</tr>
+	</table>
+</form>
+
+{% endblock %}
