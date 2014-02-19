@@ -4,16 +4,11 @@
 		
   <div id="links">
 
-    <a href="/story/{{id1}}"><h2>{{story1}}</h2></a>
-    <a href="/story/{{id2}}"><h2>{{story2}}</h2></a>
-    <a href="/story/{{id3}}"><h2>{{story3}}</h2></a>
-    <a href="/story/{{id4}}"><h2>{{story4}}</h2></a>
-    <a href="/story/{{id5}}"><h2>{{story5}}</h2></a>
-    <a href="/story/{{id6}}"><h2>{{story6}}</h2></a>
-    <a href="/story/{{id7}}"><h2>{{story7}}</h2></a>
-    <a href="/story/{{id8}}"><h2>{{story8}}</h2></a>
-    <a href="/story/{{id9}}"><h2>{{story9}}</h2></a>
-    <a href="/story/{{id10}}"><h2>{{story10}}</h2></a>
+{% for story in stories[:7] %}
+
+    <a href="/story/{{story.id}}"><h2>{{story.title}}</h2></a>
+
+{% endfor %}
 
   </div>
 

@@ -11,19 +11,8 @@ from datetime import datetime
 @app.route('/index')
 def index():
 	stories = models.Story.query.order_by('timestamp desc').all()
-	t = [s.title for s in stories]
-	i = [s.id for s in stories]
-	return render_template("index.html",
-		story1 = t[0], id1 = str(i[0]),
-		story2 = t[1], id2 = str(i[1]),
-		story3 = t[2], id3 = str(i[2]),
-		story4 = t[3], id4 = str(i[3]),
-		story5 = t[4], id5 = str(i[4]),
-		story6 = t[5], id6 = str(i[5]),
-		story7 = t[6], id7 = str(i[6]),
-		story8 = t[7], id8 = str(i[7]),
-		story9 = t[8], id9 = str(i[8]),
-		story10 = t[9], id10 = str(i[9])) #tole se mi zdi zlo neelegantna rešitev?
+	return render_template("index.html", stories = stories)
+
 
 @app.route('/submit', methods = ['GET', 'POST'])
 def submit():
@@ -33,11 +22,11 @@ def submit():
 			body = form.body.data,
 			location = form.location.data,
 			pseudonym = form.pseudonym.data,
-			email = form.email.data,
-			timestamp = datetime.utcnow()) #zakaj je eno uro prej?
+			time = form.time.data,
+			timestamp = datetime.utcnow())
 		db.session.add(post)
 		db.session.commit()
-		flash("Here's your story!")
+		flash("Thank you, this site depends on people like you. Here's your story!")
 		return redirect(url_for("story",
 			id = str(post.id)))
 	return render_template("submit.html",

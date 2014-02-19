@@ -73,9 +73,10 @@ a {
 }
 
 ul, li {
+	margin: auto;
 	width: 55%;
 	color: #169ce4;
-	margin-top: 3em;
+	text-align: center;
 }
 
 .text {
@@ -107,6 +108,11 @@ ul, li {
 	padding: 1em;
 	border-radius: 0.5em;
 }
+
+#links > a:nth-child(1) > h2:nth-child(1) > div:nth-child(2) {
+	color: #111111;
+}
+
 
 #links a {
 	text-decoration: none;

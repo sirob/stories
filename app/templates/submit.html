@@ -34,6 +34,14 @@
 			</td>
 		</tr>
 		<tr>
+			<td>When:</td>
+			<td>{{ form.time(size = 30, maxlength = 64)}}</td>
+			<td>{% for error in form.errors.time %} 
+				<span style="color: red;">{{error}}</span>
+				{% endfor %}
+			</td>
+		</tr>		
+		<tr>
 			<td>Who:</td>
 			<td>{{ form.pseudonym(size = 30, maxlength = 64)}}</td>
 			<td>{% for error in form.errors.pseudonym %} 
@@ -41,14 +49,6 @@
 				{% endfor %}
 			</td>
 		</tr>
-		<tr>
-			<td>Email:</td>
-			<td>{{ form.email(size = 30, maxlength = 64)}}</td>
-			<td>{% for error in form.errors.email %} 
-				<span style="color: red;">{{error}}</span>
-				{% endfor %}
-			</td>
-		</tr>		
 		<tr>
 			<td></td>
 			<td><input class="publish" type="submit" value="Publish!"></td>
